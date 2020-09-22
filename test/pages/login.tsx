@@ -1,5 +1,5 @@
-import {useSessionContext} from "../../";
-import {useRouter} from "next/router";
+import { useSessionContext } from '../next-session-provider';
+import { useRouter } from 'next/router';
 
 export default function Login() {
   const { authenticate } = useSessionContext();
@@ -13,7 +13,9 @@ export default function Login() {
   return (
     <div>
       login with a session
-      <div><button onClick={() => doAuth()}>login</button></div>
+      <div>
+        <button onClick={() => doAuth()}>login</button>
+      </div>
     </div>
-  )
+  );
 }

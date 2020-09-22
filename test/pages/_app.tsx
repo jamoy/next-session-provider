@@ -1,9 +1,11 @@
-import { SessionProvider } from '../../';
+import { SessionProvider } from '../next-session-provider';
 
-export default function TestApp({ Component, pageProps }) {
+function TestApp({ Component, pageProps }) {
   return (
     <SessionProvider>
       <Component {...pageProps} />
     </SessionProvider>
   );
 }
+
+export default TestApp;

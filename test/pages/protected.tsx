@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import {useSessionContext} from '../../';
-import {useRouter} from "next/router";
+import { useSessionContext } from '../next-session-provider';
+import { useRouter } from 'next/router';
 
 export default function Protected() {
   const { isAuthenticated, authenticate } = useSessionContext();
@@ -13,14 +13,26 @@ export default function Protected() {
 
   return (
     <div>
-      {isAuthenticated && <>
+      {isAuthenticated && (
+        <>
           You are logged in!
-          <div><a href="#" onClick={() => logout()}>logout</a></div>
-      </>}
-      {!isAuthenticated && <>
+          <div>
+            <a href="#" onClick={() => logout()}>
+              logout
+            </a>
+          </div>
+        </>
+      )}
+      {!isAuthenticated && (
+        <>
           This is a protected page
-          <div><Link href="/login"><a>login</a></Link></div>
-      </>}
+          <div>
+            <Link href="/login">
+              <a>login</a>
+            </Link>
+          </div>
+        </>
+      )}
     </div>
-  )
+  );
 }
