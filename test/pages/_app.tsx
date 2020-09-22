@@ -1,4 +1,4 @@
-import { SessionProvider } from '../';
+import { SessionProvider } from '../../';
 
 export default function TestApp({ Component, pageProps }) {
   return (

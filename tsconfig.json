@@ -11,6 +11,7 @@
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "outDir": "./",
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -19,8 +20,7 @@
     "jsx": "preserve"
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "index.tsx"
   ],
   "exclude": [
     "node_modules"

@@ -1,4 +1,4 @@
-import {useSessionContext} from "../";
+import {useSessionContext} from "../../";
 import {useRouter} from "next/router";
 
 export default function Login() {

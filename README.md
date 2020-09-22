@@ -10,22 +10,13 @@ npm install next-session-provider
 yarn add next-session-provider
 ```
 
-create a `next.session.ts`
-```ts
-import { InitSessionProvider } from "./component";
-
-export default InitSessionProvider({
-  // options
-});
-```
-
 in your `pages/_app.tsx`
 ```tsx
 import { SessionProvider } from 'next-session-provider';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SessionProvider {...options}>
+    <SessionProvider>
       <Component {...pageProps} />
     </SessionProvider>
   );
@@ -36,15 +27,17 @@ export default MyApp;
 
 in your `pages/protected/route.tsx`
 ```tsx
+import {useSessionContext} from 'next-session-provider';
+
 export default function Protected() {
+  const { isAuthenticated } = useSessionContext();
   return (
     <div>
-      This is a protected page. It will redirect to 
+      {isAuthenticated && <div>This is a protected page.</div>}
+      {!isAuthenticated && <div>Make sure you're logged in first.</div>}
     </div>
   );
 }
-
-export const withSession = true;
 ```
 
 ## Session Configuration
