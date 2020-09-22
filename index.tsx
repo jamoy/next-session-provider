@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 export const SessionContext = React.createContext(null);
 
 export const useSessionContext = () => useContext(SessionContext);
 
-export const SessionProvider = function(props: any) {
+export const SessionProvider = function (props: any) {
   if (props.exported === true) {
     return <>{props.children}</>;
   }
@@ -22,13 +22,16 @@ export const SessionProvider = function(props: any) {
 export function useSessionStore() {
   const [session, updateSession] = useState(null);
   const [isAuthenticated, updateAuthenticated] = useState(false);
-  const [isLoading, updateLoading] = useState(false);
-  const [token, updateToken] = useState(null);
-  const [scope, updateScope] = useState([]);
+
+  useEffect(() => {
+    // get from storage
+    return () => {};
+  }, []);
 
   function authenticate(d) {
     updateAuthenticated(d);
+    updateSession({});
   }
 
-  return { session, token, authenticate, isAuthenticated, isLoading, scope, updateSession, updateAuthenticated, updateScope };
+  return { session, authenticate, isAuthenticated };
 }
