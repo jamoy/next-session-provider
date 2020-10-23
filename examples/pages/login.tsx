@@ -2,11 +2,11 @@ import { useSessionContext } from '../next-session-provider';
 import { useRouter } from 'next/router';
 
 export default function Login() {
-  const { authenticate } = useSessionContext();
+  const { setSession } = useSessionContext();
   const router = useRouter();
 
   async function doAuth() {
-    authenticate(true);
+    setSession('authenticated', true);
     router.push('/protected');
   }
 

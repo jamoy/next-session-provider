@@ -1,6 +1,6 @@
 # Next Session Provider
 
-next-session-provider is a simple session provider for your next.js pages.
+A simple session provider for your next.js pages.
 
 ## Getting started
 
@@ -32,67 +32,31 @@ in your `pages/protected/route.tsx`
 import { useSessionContext } from 'next-session-provider';
 
 export default function Protected() {
-  const { isAuthenticated } = useSessionContext();
+  const { session } = useSessionContext();
+  // assuming you have session.isAuthenticated is available
   return (
     <div>
-      {isAuthenticated && <div>This is a protected page.</div>}
-      {!isAuthenticated && <div>Make sure you're logged in first.</div>}
+      {session.authenticated && <div>This is a protected page.</div>}
+      {!session.authenticated && <div>Make sure you're logged in first.</div>}
     </div>
   );
 }
 ```
 
-## Session Configuration
-
-## API
-
-### `{ useSessionContext }`
-
-This function returns the session context that your pages can reuse.
-
-Example:
+setting a session looks like
 
 ```tsx
-const { authenticate } = useSessionContext();
+import { useSessionContext } from 'next-session-provider';
 
-const [username, updateUsername] = useState('');
-const [password, updatePassword] = useState('');
-
-async function loginButton(ev) {
-  try {
-    await authenticate(username, password);
-    router.push('/protected/route');
-  } catch (err) {
-    setError('not possible');
-  }
+export default function Protected() {
+  const { session, setSession } = useSessionContext();
+  return (
+    <div>
+      <button onClick={() => setSession('authenticated', true)}>Set authenticate</button>
+    </div>
+  );
 }
 ```
-
-#### Authenticators
-
-##### Cookie
-
-##### Header
-
-#### Session Context
-
-##### authenticate: function
-
-A function that you can call to invoke an authentication state to run. This will run the internal authentication resolvers
-you have specified in the configuration.
-
-##### isAuthenticated: boolean
-
-You can check this property if you have authenticated or not.
-
-##### session: any
-
-You can get the authenticated session's payload through this property
-
-## Todo
-
-- [ ] Create auth wrappers
-- [ ] Provider to do the access/refresh request
 
 ## LICENSE
 

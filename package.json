@@ -1,14 +1,21 @@
 {
   "name": "next-session-provider",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
+  "main": "dist/next-session-provider.js",
   "scripts": {
-    "build": "tsc --noEmit false",
-    "test": "cp index.tsx test/next-session-provider.tsx && next dev test"
+    "build": "tsc --noEmit false"
   },
   "files": [
-    "index.jsx"
+    "dist/next-session-provider.js",
+    "LICENSE"
   ],
+  "dependencies": {
+    "next": "^9.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "store2": "^2.12.0"
+  },
   "devDependencies": {
     "@types/node": "^14.11.2",
     "@types/react": "^16.9.49",
@@ -23,11 +30,6 @@
     "prettier": "^2.1.2",
     "pretty-quick": "^3.0.2",
     "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "next": "^9.5.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
   },
   "husky": {
     "hooks": {

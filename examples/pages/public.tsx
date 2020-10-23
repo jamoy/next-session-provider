@@ -5,8 +5,10 @@ export default function Public() {
     <div>
       This is a public page
       <div>
-        <Link href="/login"><a>login</a></Link>
+        <Link href="/login">
+          <a>login</a>
+        </Link>
       </div>
     </div>
-  )
+  );
 }

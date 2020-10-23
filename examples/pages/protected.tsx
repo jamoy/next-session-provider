@@ -3,17 +3,17 @@ import { useSessionContext } from '../next-session-provider';
 import { useRouter } from 'next/router';
 
 export default function Protected() {
-  const { isAuthenticated, authenticate } = useSessionContext();
+  const { session, setSession } = useSessionContext();
   const router = useRouter();
 
   function logout() {
-    authenticate(false);
+    setSession('authenticated', false);
     router.push('/');
   }
 
   return (
     <div>
-      {isAuthenticated && (
+      {session.authenticated && (
         <>
           You are logged in!
           <div>
@@ -23,7 +23,7 @@ export default function Protected() {
           </div>
         </>
       )}
-      {!isAuthenticated && (
+      {!session.authenticated && (
         <>
           This is a protected page
           <div>
