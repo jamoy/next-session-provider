@@ -75,12 +75,12 @@ exports.SessionProvider = function (props) {
   );
 };
 function useSessionStore() {
-  var _a = react_1.useState(store2_1.default.get('__$$')),
+  var _a = react_1.useState(store2_1.default.get('__$$') || {}),
     session = _a[0],
     updateSession = _a[1];
   function setSession(key, value) {
     var sessionCopy = session;
-    if (key && value) {
+    if (key && value !== undefined) {
       sessionCopy[key] = value;
       updateSession(sessionCopy);
       store2_1.default.set('__$$', sessionCopy);

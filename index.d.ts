@@ -7,4 +7,11 @@ export interface SessionProviderProps {
 
 declare class SessionProvider extends React.Component<SessionProviderProps, any> {}
 
+export interface SessionContext {
+  session: any;
+  setSession: (key: string, value: any) => null;
+}
+
+declare function useSessionContext(): SessionContext;
+
 declare module 'next-session-provider' {}
