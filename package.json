@@ -1,13 +1,16 @@
 {
   "name": "next-session-provider",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
-  "main": "dist/next-session-provider.jsx",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "build": "tsc --noEmit false"
+    "build": "tsc --noEmit false",
+    "prepare": "yarn build"
   },
   "files": [
-    "dist/next-session-provider.jsx",
+    "dist",
+    "index.d.ts",
     "LICENSE"
   ],
   "dependencies": {
@@ -37,7 +40,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.ts{x}": [
       "eslint --fix"
     ]
   }

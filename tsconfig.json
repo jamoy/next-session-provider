@@ -5,9 +5,13 @@
     "strict": false,
     "noEmit": true,
     "outDir": "dist",
+    "removeComments": true,
+    "declaration": false,
+    "esModuleInterop": true,
     "module": "commonjs",
-    "jsx": "preserve",
-    "esModuleInterop": true
+    "jsx": "react",
+    "typeRoots": ["index.d.ts", "node_modules/@types"]
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "examples"]
 }
