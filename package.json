@@ -1,13 +1,13 @@
 {
   "name": "next-session-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
-  "main": "dist/next-session-provider.js",
+  "main": "dist/next-session-provider.jsx",
   "scripts": {
     "build": "tsc --noEmit false"
   },
   "files": [
-    "dist/next-session-provider.js",
+    "dist/next-session-provider.jsx",
     "LICENSE"
   ],
   "dependencies": {

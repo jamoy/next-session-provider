@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useSessionContext } from '../next-session-provider';
+import { useSessionContext } from 'next-session-provider';
 import { useRouter } from 'next/router';
 
 export default function Protected() {

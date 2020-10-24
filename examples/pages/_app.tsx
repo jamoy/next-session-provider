@@ -1,4 +1,4 @@
-import { SessionProvider } from '../next-session-provider';
+import { SessionProvider } from 'next-session-provider';
 
 function TestApp({ Component, pageProps }) {
   return (
